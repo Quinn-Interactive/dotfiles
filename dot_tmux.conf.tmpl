@@ -1,0 +1,43 @@
+{{ if eq .chezmoi.os "linux" -}}
+# This has to be the first directive to get p10k's directory text to be the
+# correct color on Linux.
+set -g default-terminal "screen-256color"
+# /Linux
+{{ end }}
+new-session
+set -g base-index 1
+set -s escape-time 0
+setw -g aggressive-resize on
+setw -g monitor-activity on
+set -g visual-activity on
+set -g renumber-windows on
+set -g history-limit 30000
+
+#### COLOUR (Solarized 256)
+
+# default statusbar colors
+set -g status-style default,bg=colour235,fg=colour136
+
+# default window title colors
+setw -g window-status-style fg=colour244,bg=default
+
+# active window title colors
+setw -g window-status-current-style fg=colour166,bg=default
+
+# pane border
+set -g pane-border-style fg=colour235 #base02
+set -g pane-active-border-style fg=colour240 #base01
+
+# message text
+set -g message-style bg=colour235,fg=colour166 #orange
+
+# pane number display
+set -g display-panes-active-colour colour33 #blue
+set -g display-panes-colour colour166 #orange
+
+# clock
+setw -g clock-mode-colour colour64 #green
+setw -g clock-mode-style 24
+
+# bell
+setw -g window-status-bell-style fg=colour235,bg=colour160 #base02, red
