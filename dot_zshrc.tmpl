@@ -131,6 +131,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# mysql
+alias myd='mysqldump --add-drop-database --add-locks --disable-keys --extended-insert --single-transaction --quick'
+alias ma='mysqladmin'
+alias ms='mysqlshow'
 
 {{- if eq .chezmoi.os "darwin" }}
 
