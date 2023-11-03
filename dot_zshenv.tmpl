@@ -1,4 +1,6 @@
 export EDITOR=vim
+{{- if (index . "acme") }}
 {{- if ne .acme.google_api_token "" }}
 export GOOGLEDOMAINS_ACCESS_TOKEN="{{ .acme.google_api_token }}"
-{{ end }}
+{{- end }}
+{{- end }}
