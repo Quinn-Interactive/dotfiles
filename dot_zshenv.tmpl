@@ -1,6 +1,9 @@
 export EDITOR=vim
 {{- if (index . "acme") }}
-{{- if ne .acme.google_api_token "" }}
+{{- if and (index .acme "google_api_token") (ne .acme.google_api_token "") }}
 export GOOGLEDOMAINS_ACCESS_TOKEN="{{ .acme.google_api_token }}"
+{{- end }}
+{{- if and (index .acme "vultr_api_token") (ne .acme.vultr_api_token "") }}
+export VULTR_API_KEY="{{ .acme.vultr_api_token }}"
 {{- end }}
 {{- end }}
