@@ -1,5 +1,11 @@
 export EDITOR=vim
 {{- if (index . "acme") }}
+{{- if and (index .acme "godaddy_api_key") (ne .acme.godaddy_api_key "") }}
+export GD_Key="{{ .acme.godaddy_api_key }}"
+{{- end }}
+{{- if and (index .acme "godaddy_api_secret") (ne .acme.godaddy_api_secret "") }}
+export GD_Secret="{{ .acme.godaddy_api_secret }}"
+{{- end }}
 {{- if and (index .acme "google_api_token") (ne .acme.google_api_token "") }}
 export GOOGLEDOMAINS_ACCESS_TOKEN="{{ .acme.google_api_token }}"
 {{- end }}
