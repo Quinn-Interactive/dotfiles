@@ -182,6 +182,8 @@ fi
 if [ -f /usr/local/share/examples/fzf/shell/completion.zsh ];then
   source /usr/local/share/examples/fzf/shell/completion.zsh
 fi
+# Ensure fzf never takes over ctrl-t
+bindkey "^T" transpose-chars
 {{- else if eq .chezmoi.os "linux" }}
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -191,7 +193,6 @@ if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
 fi
 if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
   source /usr/share/doc/fzf/examples/key-bindings.zsh
-  bindkey "^T" transpose-chars
 fi
 if [ -f /usr/share/doc/fzf/examples/completion.zsh ];then
   source /usr/share/doc/fzf/examples/completion.zsh
