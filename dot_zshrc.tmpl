@@ -72,6 +72,7 @@ setopt HIST_REDUCE_BLANKS    # Remove superfluous blanks from each command line 
 {{ if eq .chezmoi.os "freebsd" -}}
 # Magic-enter settings must be before the plugins list
 MAGIC_ENTER_OTHER_COMMAND='command -v eza > /dev/null && eza -gl --git --icons || ls -lhv'
+{{- end }}
 
 # eza plugin settings
 zstyle ':omz:plugins:eza' 'color-scale' all
@@ -81,7 +82,6 @@ zstyle ':omz:plugins:eza' 'header'      yes
 zstyle ':omz:plugins:eza' 'icons'       no
 zstyle ':omz:plugins:eza' 'show-group'  yes
 zstyle ':omz:plugins:eza' 'size-prefix' binary
-{{- end }}
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -106,9 +106,6 @@ plugins=(
   # non-macOS plugins
   ssh-agent
   tmux
-{{- if eq .chezmoi.os "freebsd" }}
-  eza
-{{- end }}
 {{- end }}
 {{- if eq .chezmoi.osRelease.id "ubuntu" }}
   # ubuntu plugins
@@ -117,6 +114,7 @@ plugins=(
   # common plugins
   aliases
   composer
+  eza
   fzf
   git
   magic-enter
